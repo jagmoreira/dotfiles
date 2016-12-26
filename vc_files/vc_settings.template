@@ -1,0 +1,14 @@
+# Version control settings
+# Not in the repository, to prevent people from accidentally committing under my name
+
+# Git credentials
+git config --global user.name "John Doe"
+git config --global user.email "john.doe@mail.com"
+
+# Mercural credentials
+echo '' >> ~/.hgrc
+echo '[ui]' >> ~/.hgrc
+echo 'username = Jonh Doe <doe@mail.com>' >> ~/.hgrc
+echo '[trusted]' >> ~/.hgrc
+echo 'users = john_doe' >> ~/.hgrc
+echo 'groups = john_doe' >> ~/.hgrc

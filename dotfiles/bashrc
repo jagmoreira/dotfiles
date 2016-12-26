@@ -1,0 +1,140 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+#------------------
+# Bash Options
+#------------------
+# Case insensitive tab-complete
+bind "set completion-ignore-case on"
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# Case-insensitive globbing (used in pathname expansion)
+# Can be dangerous!
+# shopt -s nocaseglob
+
+
+#------------------
+# Paths configuration
+#------------------
+# Re-defining brew first so it is not affected by pyenv or other PATH mods.
+# For pyenv see here: https://github.com/yyuu/pyenv/issues/106
+if type brew >/dev/null 2>&1 && type pyenv >/dev/null 2>&1; then
+    alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+fi
+
+if type brew > /dev/null 2>&1 && [ -d $(brew --prefix coreutils) ]; then
+    # Add brew-installed GNU core utilities bin
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    # Add man pages for brew-installed GNU core utilities
+    export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+fi
+
+# pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+
+# Manual pyenv installation needs PYENV_ROOT to be in the PATH
+if ! type brew > /dev/null 2>&1; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+
+
+#------------------
+# Exports
+#------------------
+# Don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL=ignoreboth
+
+# Increase the maximum number of lines contained in the history file
+# (default is 500)
+export HISTFILESIZE=5000
+
+# Increase the maximum number of commands to remember
+# (default is 500)
+export HISTSIZE=1000
+
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+
+# Detect which `ls` flavor is in use
+if ls --color >/dev/null 2>&1; then # GNU `ls`
+    COLORFLAG='--color'
+    GROUPDIRS='--group-directories-first'
+    # GNU ls has much finer resolution so it's better to put it in its own file
+    if type dircolors >/dev/null 2>&1; then
+        [ -r ~/.dir_colors ] && eval "$(dircolors -b ~/.dir_colors)"
+    fi
+else # OS X `ls`
+    COLORFLAG='-G'
+    GROUPDIRS=''
+    # ls color generator: http://geoff.greer.fm/lscolors/
+    export LSCOLORS=ExGxFadxCxDaDaabagacad
+fi
+
+
+#------------------
+# Aliases
+#------------------
+# Interactive operations
+alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+# Some ls aliases
+alias lu='ls -fU'
+alias ls="ls  ${GROUPDIRS} ${COLORFLAG}"
+alias l='ls -lh'
+alias la='ls -Ah'
+alias lla='ls -Alh'
+alias lt='ls -hlrt'
+
+# Misc aliases
+alias ds='du -sh'
+alias df='df -h'
+
+unset COLORFLAG
+unset GROUPDIRS
+
+
+#------------------
+# Completions
+#------------------
+# Enable remote host (scp, rsync, etc.) path completion
+if type brew >/dev/null 2>&1 && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    . "$(brew --prefix)/etc/bash_completion"
+elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# Django bash completions:
+if [ -f ~/.django_bash_completion.sh ]; then
+    . ~/.django_bash_completion.sh
+fi
+
+# enable pyenv shims and autocompletion
+if type pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+#------------------
+# Bash prompt and other functions
+#------------------
+
+for FILE in ~/.{bash_prompt,bash_functions,bash_extras}; do
+    [ -f "$FILE" ] && source "$FILE"
+done
+unset FILE

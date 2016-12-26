@@ -1,0 +1,43 @@
+# Locate Dev Setup repo
+locate_dev_repo() {
+    # http://stackoverflow.com/a/246128
+
+    local SOURCE="${BASH_SOURCE[0]}"
+    # Resolve $SOURCE until the file is no longer a symlink
+    while [ -h "$SOURCE" ]; do
+        DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+        SOURCE="$(readlink "$SOURCE")"
+        # If $SOURCE was a relative symlink, we need to resolve
+        # it relative to the path where the symlink file was located
+        [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+    done
+    local REPO_LOCATION="$( cd -P "$( dirname "$SOURCE" )/../" && pwd )"
+    #                                                    ^^^^
+    # Repo base dir is one level above the real location of this script
+    echo "$REPO_LOCATION"
+}
+
+# Backup sublime text settings
+backup_configs() {
+    local REPO_LOCATION=$(locate_dev_repo)
+    local SUBL=$($REPO_LOCATION/locate_sublime_config.sh)
+
+    echo
+    echo "Backing up Sublime Text configuration..."
+    rsync -aim \
+        --include="/Packages/User/*.sublime-settings" \
+        --include="/Packages/User/*.sublime-snippet" \
+        --include="/Packages/User/*.sublime-build" \
+        --include="/Packages/User/*.sublime-theme" \
+        --include="/Packages/User/*.tmTheme" \
+        --include "*/" \
+        --exclude="*" \
+        --delete-excluded \
+        "$SUBL/" "$REPO_LOCATION/sublime_configs"
+    echo
+
+    echo "Backing up git/mercurial configuration..."
+    rsync -ai ~/.hgrc "$REPO_LOCATION/vc_files/hgrc"
+    rsync -ai ~/.gitconfig "$REPO_LOCATION/vc_files/gitconfig"
+    echo "done!"
+}

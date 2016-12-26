@@ -1,0 +1,17 @@
+# Global gitignore
+# Should contain only non-project related and OS-specific files
+
+### Python-specific ignores
+# Byte-compiled and optimized python files
+__pycache__/
+*.py[cod]
+
+# pyenv version files
+.python-version
+
+# ipython notebook checkpoints
+.ipynb_checkpoints/
+
+### Sublime Text project files
+*.sublime-workspace
+*.sublime-project

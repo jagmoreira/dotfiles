@@ -1,0 +1,5 @@
+{
+    // By default never build.
+    // Set this to 1 in the projec-specific settings
+    "build_on_save": 0
+}

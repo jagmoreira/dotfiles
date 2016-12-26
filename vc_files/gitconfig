@@ -1,0 +1,8 @@
+[push]
+    default = matching
+[core]
+    ; Enabling mouse scrolling. -+ disables an option
+    pager = less -+F -+X
+    excludesfile = ~/.gitignore
+[alias]
+    stat = status
