@@ -5,20 +5,20 @@
 CWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo "Sym-linking dotfiles..."
-ln -sv $CWD/dotfiles/bashrc ~/.bashrc
-ln -sv $CWD/dotfiles/bash_profile ~/.bash_profile
-ln -sv $CWD/dotfiles/bash_prompt ~/.bash_prompt
-ln -sv $CWD/dotfiles/bash_functions ~/.bash_functions
-ln -sv $CWD/dotfiles/screenrc ~/.screenrc
-ln -sv $CWD/dotfiles/dir_colors ~/.dir_colors
-ln -sv $CWD/dotfiles/gitignore ~/.gitignore
-ln -sv $CWD/dotfiles/vimrc ~/.vimrc
+ln -isv $CWD/dotfiles/bashrc ~/.bashrc
+ln -isv $CWD/dotfiles/bash_profile ~/.bash_profile
+ln -isv $CWD/dotfiles/bash_prompt ~/.bash_prompt
+ln -isv $CWD/dotfiles/bash_functions ~/.bash_functions
+ln -isv $CWD/dotfiles/screenrc ~/.screenrc
+ln -isv $CWD/dotfiles/dir_colors ~/.dir_colors
+ln -isv $CWD/dotfiles/gitignore ~/.gitignore
+ln -isv $CWD/dotfiles/vimrc ~/.vimrc
 
 # Matplotlib config lives in different places depending on the os
 if [ "$(uname)" == "Darwin" ]; then
-    ln -sv $CWD/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
+    ln -isv $CWD/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
 elif [ "$(uname)" == "Linux" ]; then
-    ln -sv $CWD/dotfiles/matplotlibrc ~/.config/matplotlib/matplotlibrc
+    ln -isv $CWD/dotfiles/matplotlibrc ~/.config/matplotlib/matplotlibrc
 fi
 echo
 
@@ -59,7 +59,7 @@ if [ "$(uname)" == "Darwin" ]; then
 
     # Then install the formulae using Homebrew-bundle
     brew tap Homebrew/bundle
-    ln -sv $CWD/Brewfile ~/Brewfile
+    ln -isv $CWD/Brewfile ~/Brewfile
     brew bundle -v
 fi
 echo
