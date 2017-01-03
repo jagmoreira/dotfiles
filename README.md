@@ -1,5 +1,5 @@
 # Joao's dotfiles
-My collection of MacOS &amp; Linux dotfiles.
+My collection of macOS &amp; Linux dotfiles.
 
 This repo will set up:
 

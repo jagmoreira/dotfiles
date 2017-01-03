@@ -77,7 +77,7 @@ if ls --color >/dev/null 2>&1; then # GNU `ls`
     if type dircolors >/dev/null 2>&1; then
         [ -r ~/.dir_colors ] && eval "$(dircolors -b ~/.dir_colors)"
     fi
-else # OS X `ls`
+else # macOS `ls`
     COLORFLAG='-G'
     GROUPDIRS=''
     # ls color generator: http://geoff.greer.fm/lscolors/
