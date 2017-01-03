@@ -14,7 +14,7 @@ ln -isv $CWD/dotfiles/dir_colors ~/.dir_colors
 ln -isv $CWD/dotfiles/gitignore ~/.gitignore
 ln -isv $CWD/dotfiles/vimrc ~/.vimrc
 
-# Matplotlib config lives in different places depending on the os
+# Matplotlib config lives in different places depending on the OS
 if [ "$(uname)" == "Darwin" ]; then
     ln -isv $CWD/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
 elif [ "$(uname)" == "Linux" ]; then
@@ -29,7 +29,13 @@ rsync -abi $CWD/vc_files/gitconfig ~/.gitconfig
 
 echo "Installing local configuration..."
 VC_LOCAL="$CWD/vc_files/vc_settings.local"
-[ -f $VC_LOCAL ] && source $VC_LOCAL
+VC_TEMPLATE="$CWD/vc_files/vc_settings.template"
+if [ -f $VC_LOCAL ]; then
+    source $VC_LOCAL
+else
+    echo "$VC_LOCAL not found. You can create it from the template file:"
+    echo
+    echo -e "\t$ cp $VC_TEMPLATE $VC_LOCAL"
 echo
 
 echo "Configuring ssh..."
@@ -49,7 +55,7 @@ read -p "Common username for 'ssh' commands? [Default: $USER] " SSH_USER
 echo -e "\tUser $SSH_USER" >> $LIVE_SSH_CONFIG
 echo
 
-echo "Installing Homebrew and useful formulae..."
+echo "Installing Homebrew and useful packages..."
 if [ "$(uname)" == "Darwin" ]; then
 
     # Install homebrew if it does not yet exist
@@ -57,7 +63,7 @@ if [ "$(uname)" == "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
-    # Then install the formulae using Homebrew-bundle
+    # Then install the packages using Homebrew-bundle
     brew tap Homebrew/bundle
     ln -isv $CWD/Brewfile ~/Brewfile
     brew bundle -v
@@ -67,11 +73,18 @@ echo
 echo "Configuring Sublime Text..."
 SUBL=$($CWD/locate_sublime_config.sh)
 rsync -itvprhm $CWD/sublime_configs/ "$SUBL"
+echo
+
+if [ "$(uname)" == "Linux" ]; then
+    echo "Installing pyenv..."
+    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+fi
 echo "done!"
 
 unset CWD
-unset SUBL
 unset VC_LOCAL
-unset COMMON_SSH_CONFIG
+unset VC_TEMPLATE
 unset LIVE_SSH_CONFIG
+unset COMMON_SSH_CONFIG
 unset SSH_USER
+unset SUBL
