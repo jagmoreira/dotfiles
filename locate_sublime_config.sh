@@ -3,7 +3,7 @@
 # Finds the location of Sublime Text configurations in several systems
 
 OSX_DEFAULT="$HOME/Library/Application Support/Sublime Text 3"
-LINUX_DEFAULT="$HOME/.config/sublime-text-2"
+LINUX_DEFAULT="$HOME/.config/sublime-text-3"
 
 SUBL=""
 if [ "$(uname)" == "Darwin" ]; then
