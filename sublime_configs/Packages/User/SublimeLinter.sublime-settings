@@ -23,7 +23,8 @@
         "passive_warnings": false,
         "paths": {
             "linux": [
-                "~/.pyenv/versions/2.7.10/bin"
+                "~/.pyenv/versions/2.7.10/bin",
+                "~/.pyenv/versions/general/bin"
             ],
             "osx": [
                 "~/.pyenv/versions/general/bin"
