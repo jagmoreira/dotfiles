@@ -1010,6 +1010,17 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>Python: docstring</string>
+            <key>scope</key>
+            <string>comment.block.documentation.python</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#E6DB74</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Python: storage</string>
             <key>scope</key>
             <string>storage.type.class.python, storage.type.function.python, storage.modifier.global.python</string>
