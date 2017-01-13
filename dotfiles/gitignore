@@ -15,3 +15,6 @@ __pycache__/
 ### Sublime Text project files
 *.sublime-workspace
 *.sublime-project
+
+### NFS filesystem crap
+*.nfs*
