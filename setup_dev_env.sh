@@ -14,6 +14,11 @@ ln -isv $CWD/dotfiles/dir_colors ~/.dir_colors
 ln -isv $CWD/dotfiles/gitignore ~/.gitignore
 ln -isv $CWD/dotfiles/vimrc ~/.vimrc
 
+# Need to make the ipython folder if it does not exist
+IPYTHON_DIR=~/.ipython/profile_default/
+mkdir -p $IPYTHON_DIR
+ln -isv $CWD/dotfiles/ipython_config $IPYTHON_DIR
+
 # Matplotlib config lives in different places depending on the OS
 if [ "$(uname)" == "Darwin" ]; then
     ln -isv $CWD/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
