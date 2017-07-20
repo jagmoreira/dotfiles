@@ -13,6 +13,7 @@
 		"__pycache__",
 		".ipynb_checkpoints"
 	],
+	"find_selected_text": true,
     "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db", "*.sublime-workspace", "*.nfs*"],
 	"ignored_packages":
 	[
