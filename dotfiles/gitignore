@@ -16,5 +16,8 @@ __pycache__/
 *.sublime-workspace
 *.sublime-project
 
+### macOS stuff
+.DS_Store
+
 ### NFS filesystem crap
 *.nfs*
