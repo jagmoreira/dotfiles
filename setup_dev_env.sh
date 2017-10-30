@@ -41,6 +41,7 @@ else
     echo "$VC_LOCAL not found. You can create it from the template file:"
     echo
     echo -e "\t$ cp $VC_TEMPLATE $VC_LOCAL"
+fi
 echo
 
 echo "Configuring ssh..."
