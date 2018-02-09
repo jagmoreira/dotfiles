@@ -22,10 +22,7 @@
         "no_column_highlights_line": false,
         "passive_warnings": false,
         "paths": {
-            "linux": [
-                "~/.pyenv/versions/2.7.13/bin",
-                "~/.pyenv/versions/general/bin"
-            ],
+            "linux": [],
             "osx": [
                 "~/.pyenv/versions/general/bin"
             ],
@@ -50,6 +47,11 @@
             "python django": "python",
             "pythonimproved": "python"
         },
+        "tooltip_fontsize": "1rem",
+        "tooltip_theme": "Packages/SublimeLinter/tooltip-themes/Default/Default.tooltip-theme",
+        "tooltip_theme_excludes": [],
+        "tooltips": false,
+        "use_current_shell_path": false,
         "warning_color": "DDB700",
         "wrap_find": true
     }

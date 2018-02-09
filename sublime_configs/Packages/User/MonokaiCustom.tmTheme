@@ -121,16 +121,36 @@
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string>#ffffff</string>
+                <string />
             </dict>
         </dict>
         <dict>
             <key>name</key>
             <string>Keyword</string>
             <key>scope</key>
-            <string>keyword</string>
+            <string>keyword - (source.c keyword.operator | source.c++ keyword.operator | source.objc keyword.operator | source.objc++ keyword.operator), keyword.operator.word</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#F92672</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Annotation Punctuation</string>
+            <key>scope</key>
+            <string>punctuation.definition.annotation</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#F92672</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>JavaScript Dollar</string>
+            <key>scope</key>
+            <string>variable.other.dollar.only.js</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -165,13 +185,13 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Class name</string>
+            <string>Entity name</string>
             <key>scope</key>
-            <string>entity.name.class</string>
+            <string>entity.name - (entity.name.filename | entity.name.section | entity.name.tag | entity.name.label)</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
-                <string>underline</string>
+                <string />
                 <key>foreground</key>
                 <string>#A6E22E</string>
             </dict>
@@ -206,7 +226,7 @@
             <key>name</key>
             <string>Function argument</string>
             <key>scope</key>
-            <string>variable.parameter</string>
+            <string>variable.parameter - (source.c | source.c++ | source.objc | source.objc++)</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -243,6 +263,19 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>Function call</string>
+            <key>scope</key>
+            <string>variable.function, variable.annotation</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string />
+                <key>foreground</key>
+                <string>#66D9EF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Library function</string>
             <key>scope</key>
             <string>support.function</string>
@@ -269,7 +302,7 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Library class&#x2f;type</string>
+            <string>Library class/type</string>
             <key>scope</key>
             <string>support.type, support.class</string>
             <key>settings</key>

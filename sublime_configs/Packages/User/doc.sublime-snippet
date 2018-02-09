@@ -4,7 +4,6 @@
     <description>Docstring</description>
 
     <content><![CDATA[
-"""
-${1:Docstring.}
-"""$0]]></content>
+"""${1:Docstring.}"""
+$0]]></content>
 </snippet>
