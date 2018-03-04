@@ -30,6 +30,7 @@ backup_configs() {
         --include="/Packages/User/*.sublime-build" \
         --include="/Packages/User/*.sublime-theme" \
         --include="/Packages/User/*.tmTheme" \
+        --include="/Packages/User/Blueberry\ Cross/*" \
         --include "*/" \
         --exclude="*" \
         --delete-excluded \
