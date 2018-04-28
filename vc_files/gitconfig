@@ -1,7 +1,6 @@
 [push]
     default = matching
 [core]
-    ; Enabling mouse scrolling. -+ disables an option
     excludesfile = ~/.gitignore
 [pager]
     ; Enabling mouse scrolling for logs and diffs which can be long.
