@@ -435,28 +435,28 @@ div#notebook {
  background-color: #1d2021;
  min-height: 0px;
  box-shadow: none;
- width: 60%;
+ width: 80%;
  margin-right: auto;
  margin-left: auto;
 }
 div#ipython-main-app.container {
- width: 60%;
+ width: 80%;
  margin-right: auto;
  margin-left: auto;
  margin-right: auto;
  margin-left: auto;
 }
 .container {
- width: 60%;
+ width: 80%;
  margin-right: auto;
  margin-left: auto;
 }
 div#menubar-container {
  width: 100%;
- width: 60%;
+ width: 80%;
 }
 div#header-container {
- width: 60%;
+ width: 80%;
 }
 .notebook_app #header,
 .edit_app #header {
