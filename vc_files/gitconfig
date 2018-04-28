@@ -2,7 +2,11 @@
     default = matching
 [core]
     ; Enabling mouse scrolling. -+ disables an option
-    pager = less -+F -+X
     excludesfile = ~/.gitignore
+[pager]
+    ; Enabling mouse scrolling for logs and diffs which can be long.
+    ; -+ disables an option
+    log = less -+F -+X
+    diff = less -+F -+X
 [alias]
     stat = status
