@@ -19,6 +19,11 @@ IPYTHON_DIR=~/.ipython/profile_default/
 mkdir -p $IPYTHON_DIR
 ln -isv $CWD/dotfiles/ipython_config $IPYTHON_DIR
 
+# Need to make the jupyter folder if it does not exist
+JUPYTER_DIR=~/.jupyter/custom/
+mkdir -p $JUPYTER_DIR
+ln -isv $CWD/dotfiles/jupyter_custom.css $JUPYTER_DIR/custom.css
+
 # Matplotlib config lives in different places depending on the OS
 if [ "$(uname)" == "Darwin" ]; then
     ln -isv $CWD/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
@@ -88,6 +93,8 @@ fi
 echo "done!"
 
 unset CWD
+unset IPYTHON_DIR
+unset JUPYTER_DIR
 unset VC_LOCAL
 unset VC_TEMPLATE
 unset LIVE_SSH_CONFIG
