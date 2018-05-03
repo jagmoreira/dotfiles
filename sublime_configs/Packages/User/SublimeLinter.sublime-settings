@@ -1,6 +1,6 @@
 // SublimeLinter Settings - User
 {
-    "debug": true,
+    "debug": false,
     "delay": 0.1,
     "gutter_theme": "Blueberry Cross",
     "lint_mode": "load_save",
@@ -23,6 +23,7 @@
         ],
         "windows": []
     },
+    "statusbar.counters_template": "(W:{}|E:{})",
     "styles": [
         {
             "mark_style": "outline",
