@@ -8,4 +8,6 @@
     log = less -+F -+X
     diff = less -+F -+X
 [alias]
-    stat = status
+    cm = commit
+    st = status
+    df = diff
