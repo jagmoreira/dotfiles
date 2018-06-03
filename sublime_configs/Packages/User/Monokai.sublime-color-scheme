@@ -1,0 +1,31 @@
+{
+    "variables":
+    {
+        "background": "#191E18",
+    },
+    "globals":
+    {
+        "background": "var(background)",
+    },
+    "rules":
+    [
+        {
+            "name": "Python docstrings",
+            "scope": "comment.block.documentation.python",
+            "foreground": "var(yellow)"
+        },
+        {
+            "name": "Markup inline and block code",
+            "scope": "markup.raw.inline | markup.raw.block",
+            "foreground": "#AE81FF",
+            "background": "var(background)"
+
+        },
+        {
+            "name": "Markdown fenced code block",
+            "scope": "markup.raw.code-fence",
+            "background": "var(background)"
+
+        },
+    ]
+}
