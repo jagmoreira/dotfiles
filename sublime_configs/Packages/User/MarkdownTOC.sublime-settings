@@ -1,5 +1,6 @@
 {
-  "default_autolink": true,
-  "default_depth": 4,
-  "default_autoanchor": false
+  "defaults": {
+    "autolink": true,
+    "bracket": "round",
+  }
 }
