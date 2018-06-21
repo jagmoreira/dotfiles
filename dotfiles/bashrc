@@ -106,6 +106,7 @@ alias lt='ls -hlrt'
 # Misc aliases
 alias ds='du -sh'
 alias df='df -h'
+alias reload='source ~/.bashrc'
 
 unset COLORFLAG
 unset GROUPDIRS
