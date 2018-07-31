@@ -9,5 +9,6 @@
     diff = less -+F -+X
 [alias]
     cm = commit
+    co = checkout
     st = status
     df = diff
