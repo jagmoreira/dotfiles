@@ -1,9 +1,52 @@
 # Customize the shell prompt
 
+# get current branch in git repo
+__parse_git_branch() {
+    # When not using PS1, we must escape the colors with \001 \002
+    NC="\001\e[m\002"
+    BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    if [ -n "$BRANCH" ]; then
+        COLOR=$(__parse_git_status_color)
+        # Use printf otherwise colors won't show
+        printf " [${COLOR}${BRANCH}${NC}]"
+    else
+        echo
+    fi
+}
+
+# get current status of git repo
+__parse_git_status_color() {
+
+    # When not using PS1, we must escape the colors with \001 \002
+    RED="\001\e[1;31m\002"
+    GREEN="\001\e[1;32m\002"
+    YELLOW="\001\e[1;33m\002"
+
+    STATUS=$(git status 2> /dev/null | tee)
+    if [ -z "$STATUS" ]; then
+        echo
+        return 0
+    fi
+
+    UNSTAGED=$(echo "$STATUS" | grep "Changes not staged for commit:")
+    STAGED=$(echo "$STATUS" | grep "Changes to be committed:")
+    AHEAD=$(echo "$STATUS" | grep "Your branch is ahead of")
+
+    if [ -n "$UNSTAGED" ]; then
+        COLOR=$RED
+    elif [ -n "$STAGED" ]; then
+        COLOR=$GREEN
+    elif [ -n "$AHEAD" ]; then
+        COLOR=$YELLOW
+    fi
+
+    echo $COLOR
+}
+
 set_prompt() {
     # \e, \033 - escape character
     # \b, 007 - bell character
-    # the \[ and \] codes are necessary to prevent the cursor from advancing
+    # In PS1, we must use \[ and \] to escape the colors
 
     # xterm color codes
     local GRAY='\[\e[1;30m\]'
@@ -28,9 +71,9 @@ set_prompt() {
     PS1+="@${HOST}\h${NC}"      # \h - hostname
     PS1+="\n"
     PS1+="${GRAY}(${NC}\A${GRAY})"  #\ A - 24h time
-    PS1+=" ${BLUE}\W${NC}\$ "       # \W - current dir
-
-    export PS1
+    PS1+=" ${BLUE}\W${NC}"          # \W - current dir
+    PS1+='$(__parse_git_branch)'    # git branch, if available
+    PS1+="\$ "
 }
 
 set_prompt
