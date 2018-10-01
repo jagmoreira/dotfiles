@@ -6,7 +6,7 @@ This repo will set up:
 * Custom bashrc/bash_profile
 * Custom terminal prompt
 * (Very basic) Screen and Vim configuration
-* Git/Mercurial configuration
+* Git configuration
 * SSH configuration
 * Homebrew with common packages, including Sublime Text 3
 * Sublime Text 3 settings and theme
@@ -26,14 +26,6 @@ This repo will set up:
         # Git credentials
         git config --global user.name "John Doe"
         git config --global user.email "john.doe@mail.com"
-
-        # Mercural credentials
-        echo '' >> ~/.hgrc
-        echo '[ui]' >> ~/.hgrc
-        echo 'username = Jonh Doe <doe@mail.com>' >> ~/.hgrc
-        echo '[trusted]' >> ~/.hgrc
-        echo 'users = john_doe' >> ~/.hgrc
-        echo 'groups = john_doe' >> ~/.hgrc
 
 1. **Run installation script**: `./setup_dev_env.sh`
 
