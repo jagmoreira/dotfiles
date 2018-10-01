@@ -32,9 +32,8 @@ elif [ "$(uname)" == "Linux" ]; then
 fi
 echo
 
-echo "Configuring git/mercurial"
+echo "Configuring git"
 echo "Rsyncing common files..."
-rsync -abi $CWD/vc_files/hgrc ~/.hgrc
 rsync -abi $CWD/vc_files/gitconfig ~/.gitconfig
 
 echo "Installing local configuration..."

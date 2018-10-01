@@ -7,11 +7,3 @@ USER_EMAIL="john.doe@mail.com"
 # Git credentials
 git config --global user.name "$USER_NAME"
 git config --global user.email "$USER_EMAIL"
-
-# Mercural credentials
-echo "" >> ~/.hgrc
-echo "[ui]" >> ~/.hgrc
-echo "username = $USER_NAME <$USER_EMAIL>" >> ~/.hgrc
-echo "[trusted]" >> ~/.hgrc
-echo "users = john_doe" >> ~/.hgrc
-echo "groups = john_doe" >> ~/.hgrc
