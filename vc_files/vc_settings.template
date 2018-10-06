@@ -1,9 +1,0 @@
-# Version control settings
-# Not in the repository, to prevent people from accidentally committing under my name
-
-USER_NAME="John Doe"
-USER_EMAIL="john.doe@mail.com"
-
-# Git credentials
-git config --global user.name "$USER_NAME"
-git config --global user.email "$USER_EMAIL"
