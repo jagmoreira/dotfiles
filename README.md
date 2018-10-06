@@ -6,6 +6,7 @@ This repo will set up:
 * Custom bashrc/bash_profile
 * Custom terminal prompt
 * (Very basic) Screen and Vim configuration
+* ipython config and jupyter custom css
 * Git configuration
 * SSH configuration
 * Homebrew with common packages, including Sublime Text 3
@@ -16,20 +17,9 @@ This repo will set up:
 
 1. **Clone repo**: `$ git clone https://github.com/jagmoreira/dotfiles.git`
 
-1. **Customize version control**: `$ cp vc_files/vc_settings.template vc_files/vc_settings.local`
-
-    Edit local version control settings to match your needs. Here's a sample:
-
-        # Version control settings
-        # Not in the repository, to prevent people from accidentally committing under my name
-
-        # Git credentials
-        git config --global user.name "John Doe"
-        git config --global user.email "john.doe@mail.com"
-
 1. **Run installation script**: `./setup_dev_env.sh`
 
-    Throughout the installation the script will prompt you to overwrite any existing dotfiles and for your common ssh username.
+    Any group of files from the above list can be skipped during installation. The script will prompt you to overwrite any existing dotfiles. During the Git and SSH configurations, you will be prompted for username/email.
 
 
 ## Acknowledgements
