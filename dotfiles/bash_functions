@@ -29,7 +29,7 @@ backup_configs() {
         --include="/Packages/User/*.sublime-snippet" \
         --include="/Packages/User/*.sublime-build" \
         --include="/Packages/User/*.sublime-theme" \
-        --include="/Packages/User/*.tmTheme" \
+        --include="/Packages/User/*.sublime-color-scheme" \
         --include="/Packages/User/Blueberry\ Cross/*" \
         --include "*/" \
         --exclude="*" \
@@ -38,7 +38,6 @@ backup_configs() {
     echo
 
     echo "Backing up git/mercurial configuration..."
-    rsync -ai ~/.hgrc "$REPO_LOCATION/vc_files/hgrc"
     rsync -ai ~/.gitconfig "$REPO_LOCATION/vc_files/gitconfig"
     echo "done!"
 }

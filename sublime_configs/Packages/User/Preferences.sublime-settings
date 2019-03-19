@@ -1,6 +1,6 @@
 {
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/MonokaiCustom.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
 	"default_line_ending": "unix",
 	"draw_white_space": "none",
 	"ensure_newline_at_eof_on_save": true,
@@ -42,6 +42,7 @@
 	[
 		"Vintage"
 	],
+	"mini_diff": "auto",
 	"open_files_in_new_window": false,
 	"rulers":
 	[

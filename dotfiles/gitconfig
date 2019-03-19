@@ -10,5 +10,5 @@
 [alias]
     cm = commit
     co = checkout
-    st = status
     df = diff
+    st = status
