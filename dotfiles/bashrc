@@ -25,29 +25,32 @@ shopt -s histappend
 #------------------
 # Paths configuration
 #------------------
-# Re-defining brew first so it is not affected by pyenv or other PATH mods.
-# For pyenv see here: https://github.com/yyuu/pyenv/issues/106
-if type brew >/dev/null 2>&1 && type pyenv >/dev/null 2>&1; then
-    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-    # Always install casks to the user's Applications folder
-    export HOMEBREW_CASK_OPTS='--appdir=~/Applications'
-fi
-
-if type brew > /dev/null 2>&1 && [ -d $(brew --prefix coreutils) ]; then
-    # Add brew-installed GNU core utilities bin
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-    # Add man pages for brew-installed GNU core utilities
-    export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
-fi
-
 # pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
 
-# Manual pyenv installation needs PYENV_ROOT to be in the PATH
-if ! type brew > /dev/null 2>&1; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-fi
+if type brew >/dev/null 2>&1; then
+    PATH="/usr/local/sbin:$PATH"
 
+    export HOMEBREW_CASK_OPTS='--appdir=~/Applications'
+
+    # Re-defining brew first so it is not affected by pyenv or other PATH mods.
+    # For pyenv see here: https://github.com/yyuu/pyenv/issues/106
+    if type pyenv >/dev/null 2>&1; then
+        alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+        # Always install casks to the user's Applications folder
+    fi
+
+    if [ -d $(brew --prefix coreutils) ]; then
+        # Add brew-installed GNU core utilities bin
+        PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+        # Add man pages for brew-installed GNU core utilities
+        export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+    fi
+# Manual pyenv installation needs PYENV_ROOT to be in the PATH
+else
+    PATH="$PYENV_ROOT/bin:$PATH"
+fi
+export PATH
 
 #------------------
 # Exports
