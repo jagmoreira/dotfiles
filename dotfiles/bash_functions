@@ -38,6 +38,6 @@ backup_configs() {
     echo
 
     echo "Backing up git/mercurial configuration..."
-    rsync -ai ~/.gitconfig "$REPO_LOCATION/vc_files/gitconfig"
+    rsync -ai ~/.gitconfig "$REPO_LOCATION/dotfiles/gitconfig"
     echo "done!"
 }
