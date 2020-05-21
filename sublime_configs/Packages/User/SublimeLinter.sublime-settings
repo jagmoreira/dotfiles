@@ -21,7 +21,6 @@
         ],
         "windows": []
     },
-    "statusbar.counters_template": "(W:{}|E:{})",
     "styles": [
         {
             "mark_style": "outline",
