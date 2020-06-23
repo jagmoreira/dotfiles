@@ -12,3 +12,5 @@
     co = checkout
     df = diff
     st = status
+[pull]
+    rebase = false
