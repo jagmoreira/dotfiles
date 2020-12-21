@@ -7,12 +7,11 @@
 	[
 		"Fix Mac Path",
 		"INI",
-		"LESS",
 		"MarkdownPreview",
 		"MarkdownTOC",
 		"Package Control",
 		"Pretty JSON",
-		"Sass",
+		"ProjectManager",
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-pylint",
