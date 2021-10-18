@@ -1,6 +1,5 @@
 // SublimeLinter Settings - User
 {
-    "delay": 0.1,
     "gutter_theme": "Blueberry Cross",
     "linters": {
         "pylint": {

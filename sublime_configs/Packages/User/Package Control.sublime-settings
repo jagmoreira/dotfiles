@@ -16,6 +16,7 @@
 		"SublimeLinter",
 		"SublimeLinter-pylint",
 		"SublimeOnSaveBuild",
-		"Theme - SoDaReloaded"
+		"Theme - SoDaReloaded",
+		"TOML"
 	]
 }
