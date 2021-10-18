@@ -1,5 +1,6 @@
 {
 	"bold_folder_labels": true,
+	"close_windows_when_empty": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
 	"default_line_ending": "unix",
 	"draw_white_space": "none",

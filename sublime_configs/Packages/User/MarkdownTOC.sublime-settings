@@ -1,6 +1,6 @@
 {
   "defaults": {
     "autolink": true,
-    "bracket": "round"
+    "bracket": "round",
   }
 }
