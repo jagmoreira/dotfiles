@@ -1,13 +1,19 @@
-[
-    {
-        // Customizing the custom theme to make the sidebar background
-        // match my custom Monokai color scheme.
-        "class": "sidebar_tree",
-        "row_padding": [8, 3],
-        "indent": 12,
-        "indent_offset": 15,
-        "indent_top_level": false,
-        "layer0.tint": [25, 30, 24],
-        "layer0.opacity": 1.0,
+{
+    "variables": {
+        "quick_panel_link_color": "hsl(215, 45%, 65%)",
     },
-]
+    "rules":
+    [
+        {
+            // Customizing the custom theme to make the sidebar background
+            // match my custom Monokai color scheme.
+            "class": "sidebar_tree",
+            "layer0.tint": [25, 30, 24],
+            "layer0.opacity": 1.0,
+        },
+        {
+            "class": "quick_panel_detail_label",
+            "link_color": "var(quick_panel_link_color)"
+        },
+    ]
+}

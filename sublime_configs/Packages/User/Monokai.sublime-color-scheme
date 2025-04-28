@@ -11,7 +11,7 @@
     [
         {
             "name": "Python docstrings",
-            "scope": "comment.block.documentation.python",
+            "scope": "comment.block.documentation",
             "foreground": "var(yellow)"
         },
         {
