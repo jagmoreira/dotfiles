@@ -15,17 +15,28 @@
             "foreground": "var(yellow)"
         },
         {
-            "name": "Markup inline and block code",
-            "scope": "markup.raw.inline | markup.raw.block",
+            "name": "String Key",
+            "scope": "meta.mapping.key string - meta.mapping.key meta meta | meta.mapping.key meta.mapping.key string - meta.mapping.key meta.mapping.key meta meta",
+            "foreground": "var(yellow)",
+        },
+        {
+            "name": "Markup inline and single-line block code",
+            "scope": "markup.raw.inline.markdown | markup.raw.block",
             "foreground": "#AE81FF",
             "background": "var(background)"
-
         },
         {
             "name": "Markdown fenced code block",
-            "scope": "markup.raw.code-fence",
+            "scope": "text.html.markdown markup.raw.code-fence | text.html.markdown meta.code-fence.definition",
+            "foreground": "var(white)",
             "background": "var(background)"
-
+        },
+        {
+            // https://github.com/SublimeText-Markdown/MarkdownEditing/issues/659#issuecomment-951126084
+            "name": "Block Quotes",
+            "scope": "text.html.markdown markup.quote punctuation.definition.blockquote, text.html.markdown markup.quote punctuation.definition.quote",
+            "foreground": "var(yellow)",
+            "background": "var(background)"
         },
     ]
 }

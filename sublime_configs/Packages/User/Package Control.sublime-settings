@@ -5,8 +5,8 @@
 	],
 	"installed_packages":
 	[
-		"Fix Mac Path",
 		"INI",
+		"MarkdownEditing",
 		"MarkdownPreview",
 		"MarkdownTOC",
 		"Package Control",

@@ -38,4 +38,8 @@
 	"trim_only_modified_white_space": true,
 	"word_wrap": true,
 	"index_files": true,
+	// "disable_plugin_host_3.3": true,
+
+	// MarkdownEditing settings
+	"mde.auto_fold_link.enabled": false,
 }

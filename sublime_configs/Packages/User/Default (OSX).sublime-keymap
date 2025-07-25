@@ -1,0 +1,3 @@
+[
+    { "keys": ["super+ctrl+j"], "command": "pretty_json" },
+]
