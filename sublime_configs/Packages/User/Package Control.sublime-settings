@@ -15,8 +15,6 @@
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-pylint",
-		"SublimeOnSaveBuild",
 		"Theme - SoDaReloaded",
-		"TOML",
 	],
 }

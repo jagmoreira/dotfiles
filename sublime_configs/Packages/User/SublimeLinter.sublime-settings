@@ -1,6 +1,5 @@
 // SublimeLinter Settings - User
 {
-    "gutter_theme": "Blueberry Cross",
     "linters": {
         "pylint": {
             "disable": false,
