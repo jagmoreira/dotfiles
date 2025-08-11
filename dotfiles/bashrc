@@ -67,13 +67,12 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-# Detect which `ls` flavor is in use
+# Enable colored `ls` where directories are also shown first
 if ls --color >/dev/null 2>&1; then # GNU `ls`
-    COLORFLAG='--color'
+    COLORFLAG='--color=auto'
     GROUPDIRS='--group-directories-first'
-    # GNU ls has much finer resolution so it's better to put it in its own file
     if type dircolors >/dev/null 2>&1; then
-        [ -r ~/.dir_colors ] && eval "$(dircolors -b ~/.dir_colors)"
+        eval "$(dircolors -b)"
     fi
 else # macOS `ls`
     COLORFLAG='-G'
@@ -83,7 +82,9 @@ else # macOS `ls`
 fi
 
 # Silence MacOS Catalina warning about zsh
-export BASH_SILENCE_DEPRECATION_WARNING=1
+if [ "$(uname)" == "Darwin" ]; then
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
 
 #------------------
 # Aliases
@@ -95,7 +96,7 @@ alias rm='rm -i'
 
 # Some ls aliases
 alias lu='ls -fU'
-alias ls="ls  ${GROUPDIRS} ${COLORFLAG}"
+alias ls="ls ${GROUPDIRS} ${COLORFLAG}"
 alias l='ls -lh'
 alias la='ls -Ah'
 alias lla='ls -Alh'

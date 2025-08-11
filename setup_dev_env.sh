@@ -29,7 +29,6 @@ if prompt_user "Install bash dotfiles"; then
     ln -isv $CWD/dotfiles/bash_profile ~/.bash_profile
     ln -isv $CWD/dotfiles/bash_prompt ~/.bash_prompt
     ln -isv $CWD/dotfiles/bash_functions ~/.bash_functions
-    ln -isv $CWD/dotfiles/dir_colors ~/.dir_colors
     echo
 fi
 

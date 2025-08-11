@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
 
-# Finds the location of Sublime Text configurations in several systems
+# Finds the location of Sublime Text 3/4 configurations in several systems
 
-MACOS_DEFAULT="$HOME/Library/Application Support/Sublime Text 3"
-LINUX_DEFAULT="$HOME/.config/sublime-text-3"
+MACOS_4="$HOME/Library/Application Support/Sublime Text"
+MACOS_3="$HOME/Library/Application Support/Sublime Text 3"
+LINUX_4="$HOME/.config/sublime-text"
+LINUX_3="$HOME/.config/sublime-text-3"
 
 SUBL=""
 if [ "$(uname)" == "Darwin" ]; then
-    [ -d "$MACOS_DEFAULT" ] && SUBL="$MACOS_DEFAULT"
+    if [ -d "$MACOS_4" ]; then SUBL="$MACOS_4"
+    elif [ -d "$MACOS_3" ]; then SUBL="$MACOS_3"
+    fi
 elif [ "$(uname)" == "Linux" ]; then
-    [ -d "$LINUX_DEFAULT" ] && SUBL="$LINUX_DEFAULT"
+    if [ -d "$LINUX_4" ]; then SUBL="$LINUX_4"
+    elif [ -d "$LINUX_3" ]; then SUBL="$MACOS_3"
+    fi
 fi
 
 echo "$SUBL"
 unset SUBL
-unset MACOS_DEFAULT
-unset LINUX_DEFAULT
+unset MACOS_3
+unset MACOS_4
+unset LINUX_3
+unset LINUX_4

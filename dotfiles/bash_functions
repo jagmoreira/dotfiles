@@ -38,7 +38,7 @@ backup_configs() {
         "$SUBL/" "$REPO_LOCATION/sublime_configs"
     echo
 
-    echo "Backing up git/mercurial configuration..."
+    echo "Backing up git configuration..."
     rsync -ai ~/.gitconfig "$REPO_LOCATION/dotfiles/gitconfig"
     echo "done!"
 }
