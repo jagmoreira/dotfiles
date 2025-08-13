@@ -16,5 +16,6 @@
 		"SublimeLinter",
 		"SublimeLinter-pylint",
 		"Theme - SoDaReloaded",
+		"TOML",
 	],
 }
