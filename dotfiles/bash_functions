@@ -31,7 +31,6 @@ backup_configs() {
         --include="/Packages/User/*.sublime-build" \
         --include="/Packages/User/*.sublime-theme" \
         --include="/Packages/User/*.sublime-color-scheme" \
-        --include="/Packages/User/Blueberry\ Cross/*" \
         --include "*/" \
         --exclude="*" \
         --delete-excluded \
@@ -40,12 +39,12 @@ backup_configs() {
 
     echo "Backing up git configuration..."
     # We don't want to back up name/email configs
-    local GIT_USER=$(git config get --global user.name)
-    git config unset --global user.name
-    local GIT_EMAIL=$(git config get --global user.email)
-    git config unset --global user.email
-    rsync -ai ~/.gitconfig "$REPO_LOCATION/dotfiles/gitconfig"
-    git config set --global user.name "$GIT_USER"
-    git config set --global user.email "$GIT_EMAIL"
+    local GIT_USER=$(git config --get --global user.name)
+    git config --unset --global user.name
+    local GIT_EMAIL=$(git config --get --global user.email)
+    git config --unset --global user.email
+    cp -f ~/.gitconfig "$REPO_LOCATION/dotfiles/gitconfig"
+    git config --global user.name "$GIT_USER"
+    git config --global user.email "$GIT_EMAIL"
     echo "done!"
 }

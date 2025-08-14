@@ -67,8 +67,8 @@ if prompt_user "Configure git"; then
     echo "Sym-linking gitignore..."
     ln -isv $CWD/dotfiles/gitignore ~/.gitignore
 
-    echo "Rsyncing gitconfig..."
-    rsync -abi $CWD/dotfiles/gitconfig ~/.gitconfig
+    echo "Copying gitconfig..."
+    cp -b $CWD/dotfiles/gitconfig ~/.gitconfig
     read -p "git username: " GIT_USER
     git config --global user.name "$GIT_USER"
     read -p "git email: " GIT_EMAIL
