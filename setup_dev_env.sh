@@ -56,10 +56,12 @@ fi
 if prompt_user "Configure matplotlib"; then
     # Matplotlib config lives in different places depending on the OS
     if [ "$(uname)" == "Darwin" ]; then
-        ln -isv $CWD/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
+        MATPLOTLIB_DIR=~/.matplotlib
     elif [ "$(uname)" == "Linux" ]; then
-        ln -isv $CWD/dotfiles/matplotlibrc ~/.config/matplotlib/matplotlibrc
+        MATPLOTLIB_DIR=~/.config/matplotlib
     fi
+    mkdir -p $MATPLOTLIB_DIR
+    ln -isv $CWD/dotfiles/matplotlibrc $MATPLOTLIB_DIR/matplotlibrc
     echo
 fi
 
@@ -79,6 +81,7 @@ fi
 
 if prompt_user "Configure ssh"; then
     echo "Configuring ssh..."
+    mkdir -p ~/.ssh
     LIVE_SSH_CONFIG=~/.ssh/config
     COMMON_SSH_CONFIG="$CWD/dotfiles/ssh_config"
     if [ ! -e $LIVE_SSH_CONFIG ] || ! grep -q 'Host \*' $LIVE_SSH_CONFIG ; then
@@ -119,8 +122,12 @@ fi
 
 if prompt_user "Configure Sublime Text"; then
     SUBL=$($CWD/locate_sublime_config.sh)
-    rsync -itvprhm $CWD/sublime_configs/ "$SUBL"
-    echo
+    if [ -d "$SUBL" ]; then
+        rsync -itvprhm $CWD/sublime_configs/ "$SUBL"
+        echo
+    else
+        echo "Could not find Sublime Text. Skipping that configuration..."
+    fi
 fi
 
 if prompt_user "Install pyenv (Linux only)"; then

@@ -22,29 +22,33 @@ backup_configs() {
     local REPO_LOCATION=$(locate_dev_repo)
     local SUBL=$($REPO_LOCATION/locate_sublime_config.sh)
 
-    echo
-    echo "Backing up Sublime Text configuration..."
-    rsync -aim \
-        --include="/Packages/User/*.sublime-keymap" \
-        --include="/Packages/User/*.sublime-settings" \
-        --include="/Packages/User/*.sublime-snippet" \
-        --include="/Packages/User/*.sublime-build" \
-        --include="/Packages/User/*.sublime-theme" \
-        --include="/Packages/User/*.sublime-color-scheme" \
-        --include "*/" \
-        --exclude="*" \
-        --delete-excluded \
-        "$SUBL/" "$REPO_LOCATION/sublime_configs"
-    echo
+    if [ -d "$SUBL" ]; then
+        echo
+        echo "Backing up Sublime Text configuration..."
+        rsync -aim \
+            --include="/Packages/User/*.sublime-keymap" \
+            --include="/Packages/User/*.sublime-settings" \
+            --include="/Packages/User/*.sublime-snippet" \
+            --include="/Packages/User/*.sublime-build" \
+            --include="/Packages/User/*.sublime-theme" \
+            --include="/Packages/User/*.sublime-color-scheme" \
+            --include "*/" \
+            --exclude="*" \
+            --delete-excluded \
+            "$SUBL/" "$REPO_LOCATION/sublime_configs"
+    fi
 
-    echo "Backing up git configuration..."
-    # We don't want to back up name/email configs
-    local GIT_USER=$(git config --get --global user.name)
-    git config --unset --global user.name
-    local GIT_EMAIL=$(git config --get --global user.email)
-    git config --unset --global user.email
-    cp -f ~/.gitconfig "$REPO_LOCATION/dotfiles/gitconfig"
-    git config --global user.name "$GIT_USER"
-    git config --global user.email "$GIT_EMAIL"
-    echo "done!"
+    if [ -f ~/.gitconfig ]; then
+        echo
+        echo "Backing up git configuration..."
+        # We don't want to back up name/email configs
+        local GIT_USER=$(git config --get --global user.name)
+        git config --unset --global user.name
+        local GIT_EMAIL=$(git config --get --global user.email)
+        git config --unset --global user.email
+        cp -f ~/.gitconfig "$REPO_LOCATION/dotfiles/gitconfig"
+        git config --global user.name "$GIT_USER"
+        git config --global user.email "$GIT_EMAIL"
+        echo "done!"
+    fi
 }
