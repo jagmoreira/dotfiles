@@ -64,9 +64,6 @@ export HISTSIZE=1000
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
-
 # Enable colored `ls` where directories are also shown first
 if ls --color >/dev/null 2>&1; then # GNU `ls`
     COLORFLAG='--color=auto'
@@ -94,6 +91,9 @@ alias rm='rm -i'
 # alias cp='cp -i'
 # alias mv='mv -i'
 
+# Tell grep to highlight matches
+alias grep='grep --color=auto'
+
 # Some ls aliases
 alias lu='ls -fU'
 alias ls="ls ${GROUPDIRS} ${COLORFLAG}"
@@ -119,6 +119,16 @@ if type brew >/dev/null 2>&1 && [ -f "$(brew --prefix)/etc/bash_completion" ]; t
     . "$(brew --prefix)/etc/bash_completion"
 elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+elif [ -d /etc/profile.d ]; then
+    for i in /etc/profile.d/*.sh; do
+        if [ -r "$i" ]; then
+            if [ "$PS1" ]; then
+                . "$i"
+            else
+                . "$i" >/dev/null
+            fi
+        fi
+    done
 fi
 
 # Configure pyenv shims and autocompletion
