@@ -119,16 +119,8 @@ if type brew >/dev/null 2>&1 && [ -f "$(brew --prefix)/etc/bash_completion" ]; t
     . "$(brew --prefix)/etc/bash_completion"
 elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
-elif [ -d /etc/profile.d ]; then
-    for i in /etc/profile.d/*.sh; do
-        if [ -r "$i" ]; then
-            if [ "$PS1" ]; then
-                . "$i"
-            else
-                . "$i" >/dev/null
-            fi
-        fi
-    done
+elif [ -f /etc/profile.d/bash_completion.sh ]; then
+    . /etc/profile.d/bash_completion.sh
 fi
 
 # Configure pyenv shims and autocompletion
