@@ -27,6 +27,9 @@ shopt -s histappend
 #------------------
 # Homebrew configuration
 if type brew >/dev/null 2>&1; then
+
+    eval "$(brew shellenv bash)"
+
     # Always install casks to the user's Applications folder
     export HOMEBREW_CASK_OPTS='--appdir=~/Applications'
 
