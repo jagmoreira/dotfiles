@@ -45,6 +45,14 @@ if type brew >/dev/null 2>&1; then
         # Add man pages for brew-installed GNU core utilities
         export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
     fi
+# Macports configuration
+elif [ -f /opt/local/bin/port ]; then
+    PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+    # Add Macports-installed GNU core utilities bin
+    if [ -d /opt/local/libexec/gnubin ]; then
+        PATH=/opt/local/libexec/gnubin/:$PATH
+    fi
 fi
 export PATH
 
@@ -120,6 +128,8 @@ unset GROUPDIRS
 # Enable remote host (scp, rsync, etc.) path completion
 if type brew >/dev/null 2>&1 && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
     . "$(brew --prefix)/etc/bash_completion"
+elif [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
 elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 elif [ -f /etc/profile.d/bash_completion.sh ]; then
@@ -127,7 +137,7 @@ elif [ -f /etc/profile.d/bash_completion.sh ]; then
 fi
 
 # Configure pyenv shims and autocompletion
-if type pyenv >/dev/null 2>&1; then
+if [ -d "$HOME/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
