@@ -78,3 +78,6 @@ set_prompt() {
 
 set_prompt
 unset set_prompt
+
+# Set the cursor to a blinking vertical line
+export PROMPT_COMMAND="printf \"\e[5 q\"; $PROMPT_COMMAND"
