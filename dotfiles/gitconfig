@@ -1,5 +1,9 @@
 [push]
-    default = matching
+    default = simple
+    autoSetupRemote = True
+    follow-tags = true
+[fetch]
+    prune = true
 [core]
     excludesfile = ~/.gitignore
 [pager]
