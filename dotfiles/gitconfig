@@ -1,7 +1,6 @@
 [push]
     default = simple
-    autoSetupRemote = True
-    follow-tags = true
+    autoSetupRemote = true
 [fetch]
     prune = true
 [core]

@@ -2,8 +2,7 @@
     "build_action": "browser",
     "js": {
         "markdown": [
-            // "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
-            "https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js",
+            "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
             "res://MarkdownPreview/js/math_config.js"
         ],
         "github": ["default"],
@@ -28,7 +27,7 @@
         {
             "markdown.extensions.toc":
             {
-                "permalink": "\ue157"
+                "permalink": "\ue806"
             }
         },
         "markdown.extensions.meta",
@@ -36,6 +35,7 @@
         "markdown.extensions.smarty",
         "markdown.extensions.wikilinks",
         "markdown.extensions.admonition",
+        "pymdownx.details",
 
         // PyMdown extensions that help give a GitHub-ish feel
         {
@@ -85,6 +85,11 @@
                     "image_path": "https://github.githubassets.com/images/icons/emoji/unicode/",
                     "non_standard_image_path": "https://github.githubassets.com/images/icons/emoji/"
                 }
+            }
+        },
+        {
+            "pymdownx.quotes": {
+                "callouts": true
             }
         },
         {

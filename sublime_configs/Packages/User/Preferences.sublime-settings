@@ -6,6 +6,7 @@
 	"draw_white_space": "none",
 	"ensure_newline_at_eof_on_save": true,
 	"find_selected_text": true,
+	"open_files_in_new_window": "never",
 	"folder_exclude_patterns":
 	[
 		".svn",
@@ -38,7 +39,9 @@
 	"trim_only_modified_white_space": true,
 	"word_wrap": true,
 	"index_files": true,
-	// "disable_plugin_host_3.3": true,
+	"select_across_groups": true,
+	"font_face": "Menlo",
+	"font_size": 12,
 
 	// MarkdownEditing settings
 	"mde.auto_fold_link.enabled": false,
