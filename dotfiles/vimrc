@@ -1,6 +1,6 @@
 syntax on
 set hlsearch
-colorscheme desert
+colorscheme wildcharm
 set autoindent
 set expandtab
 set shiftwidth=4
