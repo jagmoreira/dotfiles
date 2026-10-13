@@ -44,5 +44,5 @@
 	"font_size": 12,
 
 	// MarkdownEditing settings
-	"mde.auto_fold_link.enabled": false,
+	"mde.auto_fold_link.enabled": false
 }

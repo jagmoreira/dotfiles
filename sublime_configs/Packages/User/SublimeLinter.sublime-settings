@@ -17,7 +17,7 @@
     },
     "styles": [
         {
-            "mark_style": "outline",
+            "mark_style": "none",
             "priority": 1,
             "scope": "region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter",
             "icon": "warning",

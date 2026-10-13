@@ -1,3 +1,4 @@
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html
 {
     "variables":
     {
@@ -13,11 +14,6 @@
             "name": "Python docstrings",
             "scope": "comment.block.documentation",
             "foreground": "var(yellow)"
-        },
-        {
-            "name": "String Key",
-            "scope": "meta.mapping.key string - meta.mapping.key meta meta | meta.mapping.key meta.mapping.key string - meta.mapping.key meta.mapping.key meta meta",
-            "foreground": "var(yellow)",
         },
         {
             "name": "Markup inline and single-line block code",
